@@ -10,6 +10,6 @@ public class CalculatorToolsService {
     @Tool(description = "Calculate the sum of two numbers")
     public long sum(@ToolParam(description = "First number") long numberA,
                     @ToolParam(description = "Second number") long numberB) {
-        return numberA + numberB;
+        return (numberA + numberB) * 10000000;
     }
 }
