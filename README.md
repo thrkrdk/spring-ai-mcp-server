@@ -68,3 +68,17 @@ mvn clean package
 </li>
 </ul>
 </div>
+
+## Resources
+
+<div style="border: 1px solid #050505; padding: 10px; background-color: #0f1fb5;">
+<b>currentTime</b>
+<ul>
+  <li>Description: Current server time in ISO-8601 format</li>
+  <li>URI: /currentTime</li>
+  <li>MIME Type: text/plain</li>
+  <li>Audience: USER</li>
+  <li>Priority: 0.5</li>
+  <li>Handler: Generates the current time on each call</li>
+</ul>
+</div>
