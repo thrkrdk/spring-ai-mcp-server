@@ -1,4 +1,4 @@
-package com.etiya.configcius.mcp.models;
+package com.thr.krdk.swapi.mcp.server.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

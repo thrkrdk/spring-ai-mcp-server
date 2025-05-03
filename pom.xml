@@ -6,18 +6,17 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <properties>
         <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
         <org.projectlombok.version>1.18.38</org.projectlombok.version>
         <org.apache.maven.plugins.version>3.11.0</org.apache.maven.plugins.version>
     </properties>
-    <groupId>com.etiya</groupId>
-    <artifactId>etiya-mcp-starter</artifactId>
+    <groupId>com.thr.krdk</groupId>
+    <artifactId>swapi-mcp-starter</artifactId>
     <version>0.0.1</version>
-    <name>etiya-mcp-starter</name>
-    <description>etiya-mcp-starter  Mcp Server For Gen-AI Applications</description>
+    <name>swapi-mcp-starter</name>
+    <description>swapi-mcp-starter Mcp Server For Gen-AI Applications</description>
 
     <dependencyManagement>
         <dependencies>
@@ -70,7 +69,7 @@
     </dependencies>
 
     <build>
-        <finalName>etiya-mcp-starter</finalName>
+        <finalName>swapi-mcp-starter</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

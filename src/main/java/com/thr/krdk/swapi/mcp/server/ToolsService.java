@@ -1,6 +1,6 @@
-package com.etiya.mcp.starter;
+package com.thr.krdk.swapi.mcp.server;
 
-import com.etiya.mcp.starter.utils.RestClientUtil;
+import com.thr.krdk.swapi.mcp.server.utils.RestClientUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.ai.tool.annotation.Tool;

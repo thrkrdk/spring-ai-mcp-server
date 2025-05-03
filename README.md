@@ -1,7 +1,7 @@
-# Spring boot Starter for Etiya MCP Servers With Spring AI
+# Spring boot Starter for swapi MCP Servers With Spring AI
 
 <div style="border: 1px solid #050505; padding: 10px; background-color: #050505;">
-  Note: Before You start, change the project name from etiya-mcp-starter to your own project name.
+  Note: Before You start, change the project name from swapi-mcp-starter to your own project name.
 </div>
 
 ## Tools
@@ -17,9 +17,7 @@
 </div>
 
 ## TECH Stack
-
-Bu proje aşağıdaki teknolojileri kullanmaktadır:
-
+- 
 - **Spring Boot**: 3.4.4
 - **Spring AI**: 1.0.0-M7
 - **Spring MCP Server (Stdio/Webflux)**
@@ -47,7 +45,7 @@ There are tow type Docker image for Spring MCP server for this projecy
 - To crate SSE docker image use  [Dockerfile](dockers/sse/Dockerfile)
 
 ```shell
- podman build   -f dockers/sse/Dockerfile   -t etiya-mcp-starter:latest  .
+ podman build   -f dockers/sse/Dockerfile   -t swapi-mcp-starter:latest  .
 ```
 
 ### STDIO Docker Image
@@ -55,16 +53,16 @@ There are tow type Docker image for Spring MCP server for this projecy
 - To create STDIO docker image use [Dockerfile](dockers/stdio/Dockerfile)
 
 ```shell
-  podman build   -f dockers/stdio/Dockerfile   -t etiya-mcp-starter:latest  .
+  podman build   -f dockers/stdio/Dockerfile   -t swapi-mcp-starter:latest  .
 ```
 
 <div style="border: 1px solid #050505; padding: 10px; background-color: #132285;">
   Note-1 : In some cases, below command may not work. In that case, you can use following command to build the image. 
   Note-2:  Dockerfile and jar file should be in the same directory.
-  Note-3: change this  "COPY target/etiya-mcp-starter.jar app.jar" to "COPY etiya-mcp-starter.jar app.jar" in the Dockerfile
+  Note-3: change this  "COPY target/swapi-mcp-starter.jar app.jar" to "COPY swapi-mcp-starter.jar app.jar" in the Dockerfile
 
 ```sh
- podman build -t etiya-mcp-starter  .
+ podman build -t swapi-mcp-starter  .
 ```
 
 </div>
@@ -82,13 +80,13 @@ There are tow type Docker image for Spring MCP server for this projecy
 <br/>
 
 ```sh
-podman run -d --name etiya-mcp-starter -p 8080:8080 etiya-mcp-starter
+podman run -d --name swapi-mcp-starter -p 8080:8080 swapi-mcp-starter
 ```
 
 # podman Run in debug mode for podman
 
 ```sh
-podman run -d --name etiya-mcp-starter -p 8080:8080 -p 5005:5005 -e JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005" etiya-mcp-starter
+podman run -d --name swapi-mcp-starter -p 8080:8080 -p 5005:5005 -e JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005" swapi-mcp-starter
 ```
 
 ## Intellij settings for debugging
@@ -101,7 +99,7 @@ podman run -d --name etiya-mcp-starter -p 8080:8080 -p 5005:5005 -e JAVA_OPTS="-
     * Port: 5005
 * Click "Apply" and  "OK" to save the configuration
 
-[Help Page For Debug](https://etiyawiki.atlassian.net/wiki/spaces/CNFGCS/pages/7705232202/Plugin+Y+kleme+ve+Debug+lemleri#Debug-i%C5%9Flemleri)
+[Help Page For Debug](https://swapiwiki.atlassian.net/wiki/spaces/CNFGCS/pages/7705232202/Plugin+Y+kleme+ve+Debug+lemleri#Debug-i%C5%9Flemleri)
 
 ## Host / Client settings
 
@@ -116,7 +114,7 @@ this configuration should be added to claude_desktop_config.json
 ```json
 {
   "mcpServers": {
-    "etiya-mcp-starter": {
+    "swapi-mcp-starter": {
       "command": "podman",
       "args": [
         "run",
@@ -131,7 +129,7 @@ this configuration should be added to claude_desktop_config.json
         "-e",
         "SPRING_AI_MCP_SERVER_STDIO",
         "true",
-        "etiya-mcp-starter"
+        "swapi-mcp-starter"
       ]
     }
   }
@@ -145,7 +143,7 @@ This version uses env parameters in args property
 ```json
 {
   "mcpServers": {
-    "etiya-mcp-starter": {
+    "swapi-mcp-starter": {
       "command": "podman",
       "args": [
         "run",
@@ -157,7 +155,7 @@ This version uses env parameters in args property
         "LOGGING_LEVEL_ROOT",
         "-e",
         "SPRING_AI_MCP_SERVER_STDIO",
-        "etiya-mcp-starter"
+        "swapi-mcp-starter"
       ],
       "env": {
         "SPRING_MAIN_BANNER_MODE": "off",
@@ -205,13 +203,13 @@ Note that the mcp key is not required in the .vscode/mcp.json file.
       }
     ],
     "servers": {
-      "etiya-mcp-starter": {
+      "swapi-mcp-starter": {
         "command": "podman",
         "args": [
           "run",
           "--rm",
           "-i",
-          "etiya-mcp-starter"
+          "swapi-mcp-starter"
         ],
         "env": {
           "SPRING_MAIN_BANNER_MODE": "${input:spring_main_banner_mode}",
@@ -226,4 +224,4 @@ Note that the mcp key is not required in the .vscode/mcp.json file.
 
 ### Coding: Custom implementation
 
-Demo project with [Langchain4j](https://bitbucket.etiya.com/projects/EMS/repos/02-mcp-server-implementation/browse)
+Demo project with [Langchain4j](https://bitbucket.swapi.com/projects/EMS/repos/02-mcp-server-implementation/browse)

@@ -1,4 +1,4 @@
-package com.etiya.mcp.starter.utils;
+package com.thr.krdk.swapi.mcp.server.utils;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
