@@ -12,7 +12,7 @@
 - **CheckStyle**
 
 # Branches
-- [Master Branch](https://github.com/thrkrdk/spring-ai-mcp-server) : Imtial start
+- [Master Branch](https://github.com/thrkrdk/spring-ai-mcp-server) : Initial start
 - [01-yaml-settings-for-mcp-server Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/01-yaml-settings-for-mcp-server) : MCP Yaml settings and Dockerfile.
 - [02-create-first-tool-for-swapi Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/02-create-first-tool-for-swapi) : Createing toos and custom convertor
 - [03-create-server-prompts Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/03-create-server-prompts) : Create server prompt bean
