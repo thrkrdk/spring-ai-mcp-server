@@ -21,11 +21,6 @@ logging:
   pattern:
     console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
 
-configcius:
-  api:
-    base-url: ${API_BASE_URL:https://localhost:3001}
-    access-token: 123e4567-e89b-12d3-a456-4266141740
-
 management:
   endpoints:
     web:
