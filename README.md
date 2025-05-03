@@ -31,6 +31,9 @@ mvn clean package
       <li> Input: numberA (long): First number, numberB (long): Second number
       <li> Output: long: Sum of numberA and numberB
     </ul>
+</li>
+
+</ul>
     <b>subtract</b>
     <ul> 
       <li>Description: Calculate the difference of two numbers
@@ -44,5 +47,3 @@ mvn clean package
       <li> Output: MultiplyResult: Contains numberA, numberB, and their product multiplied by a constant
     </ul>
 </div>
-
-`
