@@ -1,6 +1,7 @@
 package com.thr.krdk.swapi.mcp.server;
 
 import io.modelcontextprotocol.server.McpServerFeatures;
+import io.modelcontextprotocol.server.McpSyncServerExchange;
 import io.modelcontextprotocol.spec.McpSchema;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
@@ -10,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class SwapiMcpStarterApplication {
@@ -93,6 +96,20 @@ public class SwapiMcpStarterApplication {
                 );
 
         return List.of(specification);
+    }
+
+
+    /**
+     * Consumer that listens to root list changes.
+     * Logs the URIs of incoming root objects on each change.
+     */
+    @Bean
+    public BiConsumer<McpSyncServerExchange, List<McpSchema.Root>> rootsChangeHandler() {
+        return (exchange, roots) -> {
+            String uris = roots.stream()
+                    .map(McpSchema.Root::uri)
+                    .collect(Collectors.joining(", "));
+        };
     }
 
 }
