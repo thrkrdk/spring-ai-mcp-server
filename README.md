@@ -52,6 +52,9 @@ mvn clean package
     <ul>
       <li>characterId (string): ID of the Star Wars character to retrieve (mandatory)</li>
     </ul>
+</li>
+
+</ul>
     <b>subtract</b>
     <ul> 
       <li>Description: Calculate the difference of two numbers
@@ -65,5 +68,3 @@ mvn clean package
       <li> Output: MultiplyResult: Contains numberA, numberB, and their product multiplied by a constant
     </ul>
 </div>
-
-`
