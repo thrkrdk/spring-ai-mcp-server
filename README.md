@@ -11,8 +11,13 @@
 - **Jackson Databind**
 - **CheckStyle**
 
-## To create jar file
+# Branches
+- [Master Branch](https://github.com/thrkrdk/spring-ai-mcp-server) : Imtial start
+- [01-yaml-settings-for-mcp-server Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/01-yaml-settings-for-mcp-server) : MCP Yaml settings and Dockerfile.
+- [02-create-first-tool-for-swapi Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/02-create-first-tool-for-swapi) : Createing toos and custom convertor
+- [03-create-server-prompts Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/03-create-server-prompts) : Create server prompt bean
+- [04-create-resources Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/04-create-resources) : Resource
+- [05-create-samples Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/05-create-samples) : Samples. Currently Spring AI does Not support.
+- [06-create-roots Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/06-create-roots) : Samples. Currently Spring AI does Not support.
 
-```shell
-mvn clean package
-```
+# 06-create-roots is the FINAL BRANCH. all code is in this branch
