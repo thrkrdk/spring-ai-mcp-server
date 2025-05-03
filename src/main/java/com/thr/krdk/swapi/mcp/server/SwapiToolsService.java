@@ -8,10 +8,10 @@ import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ToolsService {
+public class SwapiToolsService {
     private final RestClientUtil restClientUtil;
 
-    public ToolsService(RestClientUtil restClientUtil) {
+    public SwapiToolsService(RestClientUtil restClientUtil) {
         this.restClientUtil = restClientUtil;
     }
 
