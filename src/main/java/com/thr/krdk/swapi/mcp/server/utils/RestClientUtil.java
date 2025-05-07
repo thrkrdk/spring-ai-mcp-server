@@ -1,6 +1,5 @@
 package com.thr.krdk.swapi.mcp.server.utils;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
@@ -10,12 +9,8 @@ import java.util.function.Function;
 public class RestClientUtil {
     private final RestClient restClient;
 
-    public RestClientUtil(
-            @Value("${configcius.api.base-url}") String baseUrl,
-            @Value("${configcius.api.access-token:}") String accessToken) {
+    public RestClientUtil() {
         this.restClient = RestClient.builder()
-                .baseUrl(baseUrl)
-                .defaultHeader("Authorization", accessToken)
                 .build();
     }
 
