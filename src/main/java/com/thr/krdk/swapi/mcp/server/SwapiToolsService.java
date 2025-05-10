@@ -1,17 +1,17 @@
 package com.thr.krdk.swapi.mcp.server;
 
-import com.thr.krdk.swapi.mcp.server.utils.RestClientUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.thr.krdk.swapi.mcp.server.utils.RestClientUtil;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ToolsService {
+public class SwapiToolsService {
     private final RestClientUtil restClientUtil;
 
-    public ToolsService(RestClientUtil restClientUtil) {
+    public SwapiToolsService(RestClientUtil restClientUtil) {
         this.restClientUtil = restClientUtil;
     }
 

@@ -11,6 +11,7 @@ spring:
         type: ${SPRING_AI_MCP_SERVER_TYPE:ASYNC}
         stdio: ${SPRING_AI_MCP_SERVER_STDIO:false}
         sse-message-endpoint: /mcp/message
+        sse-endpoint: /sse
         resource-change-notification: ${SPRING_AI_MCP_SERVER_RESOURCE_CHANGE_NOTIFICATION:false}
         tool-change-notification: ${SPRING_AI_MCP_SERVER_TOOL_CHANGE_NOTIFICATION:false}
         prompt-change-notification: ${SPRING_AI_MCP_SERVER_PROMPT_CHANGE_NOTIFICATION:false}
