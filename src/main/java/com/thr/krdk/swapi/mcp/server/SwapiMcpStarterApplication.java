@@ -24,8 +24,8 @@ public class SwapiMcpStarterApplication {
     }
 
     @Bean
-    public ToolCallbackProvider swapiTools(SwapiToolsService swapiToolsService, CalculatorToolsService calculatorToolsService) {
-        return MethodToolCallbackProvider.builder().toolObjects(swapiToolsService, calculatorToolsService).build();
+    public ToolCallbackProvider swapiTools(SwapiToolsService swapiToolsService, CalculatorToolsService calculatorToolsService, WhoAmIToolsService whoAmIToolsService) {
+        return MethodToolCallbackProvider.builder().toolObjects(swapiToolsService, calculatorToolsService, whoAmIToolsService).build();
     }
 
     // prompt
