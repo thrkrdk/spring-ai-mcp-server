@@ -18,7 +18,6 @@ public class SwapiToolsService {
     @Tool(description = "Get Star Wars character information by ID")
     public String getStarWarsCharacter(@ToolParam(description = "Character ID") String id) {
         // Stadio tipindeki mcp server'larda loglama yapılmamalı. aşağıdaki satır comment olmalı
-        System.out.println("swapi çağrıldı");
         String apiUrl = "https://www.swapi.tech/api/people/" + id;
         String jsonResponse = restClientUtil.executeGet(apiUrl, String.class);
 

@@ -98,7 +98,7 @@ There are tow type Docker image for Spring MCP server for this projecy
 - To crate SSE docker image use  [Dockerfile](dockers/sse/Dockerfile)
 
 ```shell
- podman build   -f dockers/sse/Dockerfile   -t swapi-mcp-starter:latest  .
+ podman build   -f dockers/sse/Dockerfile   -t swapi-mcp-starter-sse  .
 ```
 
 ### STDIO Docker Image
@@ -106,7 +106,7 @@ There are tow type Docker image for Spring MCP server for this projecy
 - To create STDIO docker image use [Dockerfile](dockers/stdio/Dockerfile)
 
 ```shell
-  podman build   -f dockers/stdio/Dockerfile   -t swapi-mcp-starter:latest  .
+  podman build   -f dockers/stdio/Dockerfile   -t swapi-mcp-starter-stdio  .
 ```
 
 <div style="border: 1px solid #050505; padding: 10px; background-color: #132285;">
@@ -114,8 +114,14 @@ There are tow type Docker image for Spring MCP server for this projecy
   Note-2:  Dockerfile and jar file should be in the same directory.
   Note-3: change this  "COPY target/swapi-mcp-starter.jar app.jar" to "COPY swapi-mcp-starter.jar app.jar" in the Dockerfile
 
+sse
 ```sh
- podman build -t swapi-mcp-starter  .
+ podman build -t swapi-mcp-starter-sse  .
+```
+
+stdio
+```sh
+ podman build -t swapi-mcp-starter-stdio  .
 ```
 
 </div>
@@ -133,13 +139,13 @@ There are tow type Docker image for Spring MCP server for this projecy
 <br/>
 
 ```sh
-podman run -d --name swapi-mcp-starter -p 8080:8080 swapi-mcp-starter
+podman run -d --name swapi-mcp-starter-sse -p 8080:8080 swapi-mcp-starter-sse
 ```
 
 # podman Run in debug mode for podman
 
 ```sh
-podman run -d --name swapi-mcp-starter -p 8080:8080 -p 5005:5005 -e JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005" swapi-mcp-starter
+podman run -d --name swapi-mcp-starter-sse -p 8080:8080 -p 5005:5005 -e JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005" swapi-mcp-starter
 ```
 
 ## Intellij settings for debugging
@@ -182,7 +188,7 @@ this configuration should be added to claude_desktop_config.json
         "-e",
         "SPRING_AI_MCP_SERVER_STDIO",
         "true",
-        "swapi-mcp-starter"
+        "swapi-mcp-starter-stdio"
       ]
     }
   }
@@ -208,7 +214,7 @@ This version uses env parameters in args property
         "LOGGING_LEVEL_ROOT",
         "-e",
         "SPRING_AI_MCP_SERVER_STDIO",
-        "swapi-mcp-starter"
+        "swapi-mcp-starter-stdio"
       ],
       "env": {
         "SPRING_MAIN_BANNER_MODE": "off",
@@ -262,7 +268,7 @@ Note that the mcp key is not required in the .vscode/mcp.json file.
           "run",
           "--rm",
           "-i",
-          "swapi-mcp-starter"
+          "swapi-mcp-starter-stdio"
         ],
         "env": {
           "SPRING_MAIN_BANNER_MODE": "${input:spring_main_banner_mode}",

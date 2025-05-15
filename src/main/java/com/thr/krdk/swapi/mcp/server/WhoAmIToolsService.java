@@ -8,6 +8,6 @@ public class WhoAmIToolsService {
 
     @Tool(description = "To get User Information")
     public String whoAmI() {
-        return "{\"name\":\"Tahir\" ,\"lastName\":\"Kardak\", \"title\":\"Software Developer\"}";
+        return "Tahir KARDAK - Software Developer";
     }
 }
