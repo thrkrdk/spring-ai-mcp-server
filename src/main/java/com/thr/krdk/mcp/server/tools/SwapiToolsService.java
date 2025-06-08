@@ -1,4 +1,4 @@
-package com.thr.krdk.mcp.server.services;
+package com.thr.krdk.mcp.server.tools;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
