@@ -1,4 +1,4 @@
-package com.thr.krdk.swapi.mcp.server;
+package com.thr.krdk.swapi.mcp.server.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,8 +17,10 @@ public class SwapiToolsService {
 
     @Tool(description = "Get Star Wars character information by ID")
     public String getStarWarsCharacter(@ToolParam(description = "Character ID") String id) {
-        // Stadio tipindeki mcp server'larda loglama yapılmamalı. aşağıdaki satır comment olmalı
-        System.out.println("swapi çağrıldı");
+
+        // Stadio tipindeki mcp server kesinlikle log'la işlemi yapılmamalı. SLF4J kullanılmalı.
+        // System.out.println("swapi çağrıldı");  // stadioda bu satır aktif olursa  server ayağa kalkmaz
+
         String apiUrl = "https://www.swapi.tech/api/people/" + id;
         String jsonResponse = restClientUtil.executeGet(apiUrl, String.class);
 
