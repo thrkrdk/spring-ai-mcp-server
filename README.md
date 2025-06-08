@@ -19,6 +19,6 @@
 - [04-create-resources Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/04-create-resources) : Resources
 - [05-create-samples Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/05-create-samples) : Samples. Currently Spring AI does Not support.
 - [06-create-roots Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/06-create-roots) : Roots
-- [06-create-completion Branch]([https://github.com/thrkrdk/spring-ai-mcp-server/tree/06-create-roots](https://github.com/thrkrdk/spring-ai-mcp-server/tree/07-create-completion)) : Completion 
+- [07-create-completion Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/07-create-completion) : Completion 
 
 # 06-create-completion is the FINAL BRANCH. all code is in this branch
