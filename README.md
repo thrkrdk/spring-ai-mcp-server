@@ -147,3 +147,78 @@ mvn clean package
   <li>Output: List<String>: Seçilen konu hakkında bilgi listesi</li>
 </ul>
 </div>
+
+README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
+
+
+## Resources
+
+<div style="border: 1px solid #050505; padding: 10px; background-color: #0f1fb5;">
+<b>database-row in [DatabaseResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/DatabaseResourceProvider.java)</b>
+<ul>
+  <li>Description: Belirtilen tablo ve ID için veri satırı döner</li>
+  <li>Input:
+    <ul>
+      <li>table (string): Tablo adı</li>
+      <li>id (string): Satır ID'si</li>
+    </ul>
+  </li>
+  <li>Output: JSON: Tek bir tablo satırı</li>
+</ul>
+
+<b>database-table in [DatabaseResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/DatabaseResourceProvider.java)</b>
+<ul>
+  <li>Description: Belirtilen tablodaki tüm satırları JSON listesi olarak döner</li>
+  <li>Input:
+    <ul>
+      <li>table (string): Tablo adı</li>
+    </ul>
+  </li>
+  <li>Output: JSON: Tablodaki tüm satırların listesi</li>
+</ul>
+
+<b>user-profile in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
+<ul>
+  <li>Description: Belirli bir kullanıcı için profil bilgilerini sağlar</li>
+  <li>Input:
+    <ul>
+      <li>username (string): Kullanıcı adı</li>
+    </ul>
+  </li>
+  <li>Output: Text: Kullanıcı profil bilgileri</li>
+</ul>
+
+<b>user-attribute in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
+<ul>
+  <li>Description: Kullanıcı profilinden belirli bir özelliği döndürür</li>
+  <li>Input:
+    <ul>
+      <li>username (string): Kullanıcı adı</li>
+      <li>attribute (string): İstenen özellik (name, email, age, location)</li>
+    </ul>
+  </li>
+  <li>Output: Text: İstenen özelliğin değeri</li>
+</ul>
+
+<b>user-status in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
+<ul>
+  <li>Description: Kullanıcının mevcut durumunu döndürür</li>
+  <li>Input:
+    <ul>
+      <li>username (string): Kullanıcı adı</li>
+    </ul>
+  </li>
+  <li>Output: Text: Kullanıcının çevrimiçi durumu</li>
+</ul>
+
+<b>user-avatar in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
+<ul>
+  <li>Description: Kullanıcının avatar resmini base64 kodlanmış olarak döndürür</li>
+  <li>Input:
+    <ul>
+      <li>username (string): Kullanıcı adı</li>
+    </ul>
+  </li>
+  <li>Output: Image: Base64 kodlanmış avatar resmi</li>
+</ul>
+</div>

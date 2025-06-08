@@ -3,16 +3,11 @@ package com.thr.krdk.mcp.server;
 import com.thr.krdk.mcp.server.tools.CalculatorToolsService;
 import com.thr.krdk.mcp.server.tools.SwapiToolsService;
 import com.thr.krdk.mcp.server.tools.WhoAmIToolsService;
-import io.modelcontextprotocol.server.McpServerFeatures;
-import io.modelcontextprotocol.spec.McpSchema;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.time.Instant;
-import java.util.List;
 
 @SpringBootApplication
 public class McpStarterApplication {
@@ -67,6 +62,7 @@ public class McpStarterApplication {
     */
 
 
+    /*
     @Bean
     public List<McpServerFeatures.SyncResourceSpecification> myResources() {
         McpSchema.Resource currentTimeResource = new McpSchema.Resource(
@@ -80,7 +76,6 @@ public class McpStarterApplication {
                 )
         );
 
-        // 2) Associate the resource with a handler: generate the current time on each call
         McpServerFeatures.SyncResourceSpecification specification =
                 new McpServerFeatures.SyncResourceSpecification(
                         currentTimeResource,
@@ -99,4 +94,6 @@ public class McpStarterApplication {
 
         return List.of(specification);
     }
+
+     */
 }
