@@ -222,3 +222,31 @@ README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
   <li>Output: Image: Base64 kodlanmış avatar resmi</li>
 </ul>
 </div>
+
+## Sampling
+
+<div style="border: 1px solid #050505; padding: 10px; background-color: #0f1fb5;">
+<b>getTemperature in [WeatherSamplingService.java](src/main/java/com/thr/krdk/mcp/server/sampling/WeatherSamplingService.java)</b>
+<ul>
+  <li>Description: Get the temperature (in celsius) for a specific location</li>
+  <li>Input:
+    <ul>
+      <li>latitude (double): The location latitude</li>
+      <li>longitude (double): The location longitude</li>
+    </ul>
+  </li>
+  <li>Output: String: Contains two AI-generated poems about the weather (from Gemma and Qwen models) and the raw weather data in JSON format</li>
+</ul>
+
+<b>callMcpSampling in [WeatherSamplingService.java](src/main/java/com/thr/krdk/mcp/server/sampling/WeatherSamplingService.java)</b>
+<ul>
+  <li>Description: Creates poetic interpretations of weather data using multiple AI models</li>
+  <li>Input:
+    <ul>
+      <li>toolContext (ToolContext): MCP exchange context</li>
+      <li>weatherResponse (WeatherResponse): Current weather data</li>
+    </ul>
+  </li>
+  <li>Output: String: Combined output of poems from different AI models and original weather data</li>
+</ul>
+</div>
