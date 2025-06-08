@@ -1,9 +1,16 @@
 package com.thr.krdk.mcp.server;
 
+import com.logaritex.mcp.spring.SpringAiMcpAnnotationProvider;
+import com.thr.krdk.mcp.server.completion.AutocompleteProvider;
+import com.thr.krdk.mcp.server.prompts.PromptProvider;
+import com.thr.krdk.mcp.server.resource.UserProfileResourceProvider;
 import com.thr.krdk.mcp.server.sampling.WeatherSamplingService;
 import com.thr.krdk.mcp.server.tools.CalculatorToolsService;
 import com.thr.krdk.mcp.server.tools.SwapiToolsService;
 import com.thr.krdk.mcp.server.tools.WhoAmIToolsService;
+import io.modelcontextprotocol.server.McpServerFeatures.SyncCompletionSpecification;
+import io.modelcontextprotocol.server.McpServerFeatures.SyncPromptSpecification;
+import io.modelcontextprotocol.server.McpServerFeatures.SyncResourceSpecification;
 import io.modelcontextprotocol.server.McpSyncServerExchange;
 import io.modelcontextprotocol.spec.McpSchema;
 import org.springframework.ai.tool.ToolCallbackProvider;
@@ -34,6 +41,21 @@ public class McpStarterApplication {
                 calculatorToolsService,
                 whoAmIToolsService,
                 weatherSamplingService).build();
+    }
+
+    @Bean
+    public List<SyncPromptSpecification> promptSpecs(PromptProvider promptProvider) {
+        return SpringAiMcpAnnotationProvider.createSyncPromptSpecifications(List.of(promptProvider));
+    }
+
+    @Bean
+    public List<SyncResourceSpecification> resourceSpecs(UserProfileResourceProvider userProfileResourceProvider) {
+        return SpringAiMcpAnnotationProvider.createSyncResourceSpecifications(List.of(userProfileResourceProvider));
+    }
+
+    @Bean
+    public List<SyncCompletionSpecification> completionSpecs(AutocompleteProvider autocompleteProvider) {
+        return SpringAiMcpAnnotationProvider.createSyncCompleteSpecifications(List.of(autocompleteProvider));
     }
 
     /*
