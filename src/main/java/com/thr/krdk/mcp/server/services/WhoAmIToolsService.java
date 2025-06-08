@@ -1,4 +1,4 @@
-package com.thr.krdk.swapi.mcp.server;
+package com.thr.krdk.mcp.server.services;
 
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Service;
