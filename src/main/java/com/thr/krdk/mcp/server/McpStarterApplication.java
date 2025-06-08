@@ -1,5 +1,7 @@
 package com.thr.krdk.mcp.server;
 
+import com.thr.krdk.mcp.server.prompts.PromptProvider;
+import com.thr.krdk.mcp.server.resource.UserProfileResourceProvider;
 import com.thr.krdk.mcp.server.tools.CalculatorToolsService;
 import com.thr.krdk.mcp.server.tools.SwapiToolsService;
 import com.thr.krdk.mcp.server.tools.WhoAmIToolsService;
@@ -8,6 +10,11 @@ import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import io.modelcontextprotocol.server.McpServerFeatures.SyncPromptSpecification;
+import io.modelcontextprotocol.server.McpServerFeatures.SyncResourceSpecification;
+import com.logaritex.mcp.spring.SpringAiMcpAnnotationProvider;
+
+import java.util.List;
 
 @SpringBootApplication
 public class McpStarterApplication {
@@ -22,6 +29,17 @@ public class McpStarterApplication {
     public ToolCallbackProvider swapiTools(SwapiToolsService swapiToolsService, CalculatorToolsService calculatorToolsService, WhoAmIToolsService whoAmIToolsService) {
         return MethodToolCallbackProvider.builder().toolObjects(swapiToolsService, calculatorToolsService, whoAmIToolsService).build();
     }
+
+    @Bean
+    public List<SyncPromptSpecification> promptSpecs(PromptProvider promptProvider) {
+        return SpringAiMcpAnnotationProvider.createSyncPromptSpecifications(List.of(promptProvider));
+    }
+
+    @Bean
+    public List<SyncResourceSpecification> resourceSpecs(UserProfileResourceProvider userProfileResourceProvider) {
+        return SpringAiMcpAnnotationProvider.createSyncResourceSpecifications(List.of(userProfileResourceProvider));
+    }
+
 
     /*
     @Bean
