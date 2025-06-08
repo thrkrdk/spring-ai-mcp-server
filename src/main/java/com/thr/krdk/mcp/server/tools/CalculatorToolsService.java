@@ -1,4 +1,4 @@
-package com.thr.krdk.mcp.server.services;
+package com.thr.krdk.mcp.server.tools;
 
 import com.thr.krdk.mcp.server.models.MultiplyResult;
 import com.thr.krdk.mcp.server.utils.MultiplyResultConverter;
