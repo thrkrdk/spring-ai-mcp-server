@@ -1,12 +1,12 @@
-package com.thr.krdk.swapi.mcp.server;
+package com.thr.krdk.mcp.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SwapiMcpStarterApplication {
+public class McpStarterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SwapiMcpStarterApplication.class, args);
+        SpringApplication.run(McpStarterApplication.class, args);
     }
 }

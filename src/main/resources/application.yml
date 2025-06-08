@@ -11,7 +11,7 @@ spring:
         name: configcius-mcp # Sunucu adı
         version: 0.0.1 # Sunucu versiyon
         type: ${SPRING_AI_MCP_SERVER_TYPE:ASYNC} # Sunucu türü (SYNC/ASYNC), default SYNC
-        sse-message-endpoint: /mcp/message # İstemcinin mesaj göndermek için kullanacağı web transport özel SSE mesaj  endpoint, default /mcp/message
+        sse-message-endpoint: /mcp/message # İstemcinin mesaj göndermek için kullanacağı  endpoint. Değiştirildiğinde çalışmadı. belki ilerde düzelir.
         sse-endpoint: /sse #  varsayılan endpoint
         request-timeout: 20 # Zaman aşımı süresi, saniye cinsinden. , tool calls, kaynak erişimi vb tüm client isteklerinin sunucudan yanıt alması için tanınan bekleme süresidir.
         capabilities:
