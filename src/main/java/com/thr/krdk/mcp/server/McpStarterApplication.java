@@ -1,8 +1,8 @@
-package com.thr.krdk.swapi.mcp.server;
+package com.thr.krdk.mcp.server;
 
-import com.thr.krdk.swapi.mcp.server.services.CalculatorToolsService;
-import com.thr.krdk.swapi.mcp.server.services.SwapiToolsService;
-import com.thr.krdk.swapi.mcp.server.services.WhoAmIToolsService;
+import com.thr.krdk.mcp.server.services.CalculatorToolsService;
+import com.thr.krdk.mcp.server.services.SwapiToolsService;
+import com.thr.krdk.mcp.server.services.WhoAmIToolsService;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;

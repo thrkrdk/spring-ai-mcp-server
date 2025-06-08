@@ -1,8 +1,8 @@
-package com.thr.krdk.swapi.mcp.server.services;
+package com.thr.krdk.mcp.server.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.thr.krdk.swapi.mcp.server.utils.RestClientUtil;
+import com.thr.krdk.mcp.server.utils.RestClientUtil;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;

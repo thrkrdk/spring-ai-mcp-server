@@ -1,7 +1,7 @@
-package com.thr.krdk.swapi.mcp.server.services;
+package com.thr.krdk.mcp.server.services;
 
-import com.thr.krdk.swapi.mcp.server.models.MultiplyResult;
-import com.thr.krdk.swapi.mcp.server.utils.MultiplyResultConverter;
+import com.thr.krdk.mcp.server.models.MultiplyResult;
+import com.thr.krdk.mcp.server.utils.MultiplyResultConverter;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;

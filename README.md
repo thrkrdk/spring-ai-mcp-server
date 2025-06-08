@@ -2,9 +2,11 @@
 
 ## TECH Stack
 
-- **Spring Boot**: 3.4.4
-- **Spring AI**: 1.0.0-M7
+- **Spring Boot**: 3.5.0
+- **Spring AI**: 1.0.0
+- **Actuator**
 - **Spring MCP Server (Stdio/Webflux)**
+- **MCP Annotations**
 - **Lombok**: 1.18.38
 - **SpotBugs**: 4.8.6
 - **Jackson Databind**
@@ -26,7 +28,7 @@ mvn clean package
   <li>Output: JSON: Kullanıcı bilgilerini içeren JSON nesnesi (name, lastName, title)</li>
 </ul>
 
-<b>sum in [CalculatorToolsService.java](src/main/java/com/thr/krdk/swapi/mcp/server/CalculatorToolsService.java)</b>
+<b>sum in [CalculatorToolsService.java](src/main/java/com/thr/krdk/mcp/server/CalculatorToolsService.java)</b>
 <ul>
   <li>Description: Sums two numbers</li>
   <li>Input:
@@ -38,7 +40,7 @@ mvn clean package
   <li>Output: long: Sum of numberA and numberB multiplied by a constant</li>
 </ul>
 
-<b>subtract in [CalculatorToolsService.java](src/main/java/com/thr/krdk/swapi/mcp/server/CalculatorToolsService.java)</b>
+<b>subtract in [CalculatorToolsService.java](src/main/java/com/thr/krdk/mcp/server/CalculatorToolsService.java)</b>
 <ul>
   <li>Description: Calculate the difference of two numbers</li>
   <li>Input:
@@ -50,7 +52,7 @@ mvn clean package
   <li>Output: long: Difference of numberA and numberB multiplied by a constant</li>
 </ul>
 
-<b>multiply in [CalculatorToolsService.java](src/main/java/com/thr/krdk/swapi/mcp/server/CalculatorToolsService.java)</b>
+<b>multiply in [CalculatorToolsService.java](src/main/java/com/thr/krdk/mcp/server/CalculatorToolsService.java)</b>
 <ul>
   <li>Description: Calculate the product of two numbers</li>
   <li>Input:
@@ -62,7 +64,7 @@ mvn clean package
   <li>Output: MultiplyResult: Contains numberA, numberB, and their product multiplied by a constant</li>
 </ul>
 
-<b>getStarWarsCharacter in [SwapiToolsService.java](src/main/java/com/thr/krdk/swapi/mcp/server/SwapiToolsService.java)</b>
+<b>getStarWarsCharacter in [SwapiToolsService.java](src/main/java/com/thr/krdk/mcp/server/SwapiToolsService.java)</b>
 <ul> 
   <li>Description: Fetch a Star Wars character by ID using the SWAPI</li>
   <li>Input: 
