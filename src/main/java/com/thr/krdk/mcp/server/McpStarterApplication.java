@@ -4,11 +4,17 @@ import com.thr.krdk.mcp.server.sampling.WeatherSamplingService;
 import com.thr.krdk.mcp.server.tools.CalculatorToolsService;
 import com.thr.krdk.mcp.server.tools.SwapiToolsService;
 import com.thr.krdk.mcp.server.tools.WhoAmIToolsService;
+import io.modelcontextprotocol.server.McpSyncServerExchange;
+import io.modelcontextprotocol.spec.McpSchema;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class McpStarterApplication {
@@ -103,4 +109,14 @@ public class McpStarterApplication {
     }
 
      */
+
+    @Bean
+    public BiConsumer<McpSyncServerExchange, List<McpSchema.Root>> rootsChangeHandler() {
+        return (exchange, roots) -> {
+            String uris = roots.stream()
+                    .map(McpSchema.Root::uri)
+                    .collect(Collectors.joining(", "));
+        };
+    }
 }
+
