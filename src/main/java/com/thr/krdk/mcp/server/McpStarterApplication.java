@@ -1,5 +1,8 @@
-package com.thr.krdk.swapi.mcp.server;
+package com.thr.krdk.mcp.server;
 
+import com.thr.krdk.mcp.server.tools.CalculatorToolsService;
+import com.thr.krdk.mcp.server.tools.SwapiToolsService;
+import com.thr.krdk.mcp.server.tools.WhoAmIToolsService;
 import io.modelcontextprotocol.server.McpServerFeatures;
 import io.modelcontextprotocol.spec.McpSchema;
 import org.springframework.ai.tool.ToolCallbackProvider;
@@ -12,12 +15,12 @@ import java.time.Instant;
 import java.util.List;
 
 @SpringBootApplication
-public class SwapiMcpStarterApplication {
+public class McpStarterApplication {
 
     private static final double RESOURCE_PRIORITY = 0.5; // Define a named constant for the magic number
 
     public static void main(String[] args) {
-        SpringApplication.run(SwapiMcpStarterApplication.class, args);
+        SpringApplication.run(McpStarterApplication.class, args);
     }
 
     @Bean
@@ -25,7 +28,7 @@ public class SwapiMcpStarterApplication {
         return MethodToolCallbackProvider.builder().toolObjects(swapiToolsService, calculatorToolsService, whoAmIToolsService).build();
     }
 
-    // prompt
+    /*
     @Bean
     public List<McpServerFeatures.SyncPromptSpecification> starWarsCharacterPrompts() {
         // Prompt description: Id, description and list of arguments
@@ -61,6 +64,8 @@ public class SwapiMcpStarterApplication {
 
         return List.of(promptSpecification);
     }
+    */
+
 
     @Bean
     public List<McpServerFeatures.SyncResourceSpecification> myResources() {

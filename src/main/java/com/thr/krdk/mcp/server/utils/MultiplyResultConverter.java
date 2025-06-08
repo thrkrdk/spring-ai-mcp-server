@@ -1,4 +1,4 @@
-package com.thr.krdk.swapi.mcp.server.utils;
+package com.thr.krdk.mcp.server.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
