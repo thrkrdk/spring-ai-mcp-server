@@ -38,3 +38,47 @@ public class RestClientUtil {
 
         return bodySpec.retrieve().body(responseType);
     }
+
+    private static RestClient.RequestBodySpec getRequestBodySpec(String uri,
+                                                                 Object body,
+                                                                 Object[] uriVariables,
+                                                                 RestClient.RequestBodyUriSpec requestSpec) {
+        RestClient.RequestBodySpec bodySpec;
+
+        if (uriVariables == null || uriVariables.length == 0) {
+            bodySpec = requestSpec.uri(uri);
+        } else {
+            bodySpec = requestSpec.uri(uri, uriVariables);
+        }
+
+        if (body != null) {
+            bodySpec.body(body);
+        }
+        return bodySpec;
+    }
+
+    public <T> T executePut(String uri, Object body, Class<T> responseType, Object... uriVariables) {
+        RestClient.RequestBodyUriSpec requestSpec = restClient.put();
+        RestClient.RequestBodySpec bodySpec = getRequestBodySpec(uri, body, uriVariables, requestSpec);
+
+        return bodySpec.retrieve().body(responseType);
+    }
+
+    public <T> T executeDelete(String uri, Class<T> responseType, Object... uriVariables) {
+        RestClient.RequestHeadersUriSpec<?> requestSpec = restClient.delete();
+        RestClient.RequestHeadersSpec<?> headersSpec = getRequestHeadersSpec(uri, uriVariables, requestSpec);
+
+        return headersSpec.retrieve().body(responseType);
+    }
+
+    public <T> T execute(Function<RestClient, RestClient.RequestBodyUriSpec> requestMethod,
+                         String uri,
+                         Object body,
+                         Class<T> responseType,
+                         Object... uriVariables) {
+        RestClient.RequestBodyUriSpec requestSpec = requestMethod.apply(restClient);
+        RestClient.RequestBodySpec bodySpec = getRequestBodySpec(uri, body, uriVariables, requestSpec);
+
+        return bodySpec.retrieve().body(responseType);
+    }
+}
