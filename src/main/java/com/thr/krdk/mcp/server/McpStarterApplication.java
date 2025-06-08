@@ -1,34 +1,36 @@
-package com.thr.krdk.swapi.mcp.server;
+package com.thr.krdk.mcp.server;
 
-import io.modelcontextprotocol.server.McpServerFeatures;
-import io.modelcontextprotocol.server.McpSyncServerExchange;
-import io.modelcontextprotocol.spec.McpSchema;
+import com.thr.krdk.mcp.server.sampling.WeatherSamplingService;
+import com.thr.krdk.mcp.server.tools.CalculatorToolsService;
+import com.thr.krdk.mcp.server.tools.SwapiToolsService;
+import com.thr.krdk.mcp.server.tools.WhoAmIToolsService;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.time.Instant;
-import java.util.List;
-import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
-
 @SpringBootApplication
-public class SwapiMcpStarterApplication {
+public class McpStarterApplication {
 
     private static final double RESOURCE_PRIORITY = 0.5; // Define a named constant for the magic number
 
     public static void main(String[] args) {
-        SpringApplication.run(SwapiMcpStarterApplication.class, args);
+        SpringApplication.run(McpStarterApplication.class, args);
     }
 
     @Bean
-    public ToolCallbackProvider swapiTools(SwapiToolsService swapiToolsService, CalculatorToolsService calculatorToolsService, WhoAmIToolsService whoAmIToolsService) {
-        return MethodToolCallbackProvider.builder().toolObjects(swapiToolsService, calculatorToolsService, whoAmIToolsService).build();
+    public ToolCallbackProvider swapiTools(SwapiToolsService swapiToolsService,
+                                           CalculatorToolsService calculatorToolsService,
+                                           WhoAmIToolsService whoAmIToolsService,
+                                           WeatherSamplingService weatherSamplingService) {
+        return MethodToolCallbackProvider.builder().toolObjects(swapiToolsService,
+                calculatorToolsService,
+                whoAmIToolsService,
+                weatherSamplingService).build();
     }
 
-    // prompt
+    /*
     @Bean
     public List<McpServerFeatures.SyncPromptSpecification> starWarsCharacterPrompts() {
         // Prompt description: Id, description and list of arguments
@@ -64,7 +66,10 @@ public class SwapiMcpStarterApplication {
 
         return List.of(promptSpecification);
     }
+    */
 
+
+    /*
     @Bean
     public List<McpServerFeatures.SyncResourceSpecification> myResources() {
         McpSchema.Resource currentTimeResource = new McpSchema.Resource(
@@ -78,7 +83,6 @@ public class SwapiMcpStarterApplication {
                 )
         );
 
-        // 2) Associate the resource with a handler: generate the current time on each call
         McpServerFeatures.SyncResourceSpecification specification =
                 new McpServerFeatures.SyncResourceSpecification(
                         currentTimeResource,
@@ -98,18 +102,5 @@ public class SwapiMcpStarterApplication {
         return List.of(specification);
     }
 
-
-    /**
-     * Consumer that listens to root list changes.
-     * Logs the URIs of incoming root objects on each change.
      */
-    @Bean
-    public BiConsumer<McpSyncServerExchange, List<McpSchema.Root>> rootsChangeHandler() {
-        return (exchange, roots) -> {
-            String uris = roots.stream()
-                    .map(McpSchema.Root::uri)
-                    .collect(Collectors.joining(", "));
-        };
-    }
-
 }

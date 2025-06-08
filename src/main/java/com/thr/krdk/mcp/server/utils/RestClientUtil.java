@@ -1,4 +1,4 @@
-package com.thr.krdk.swapi.mcp.server.utils;
+package com.thr.krdk.mcp.server.utils;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
