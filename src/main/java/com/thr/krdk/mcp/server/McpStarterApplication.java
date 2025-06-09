@@ -1,18 +1,19 @@
 package com.thr.krdk.mcp.server;
 
+import com.logaritex.mcp.spring.SpringAiMcpAnnotationProvider;
 import com.thr.krdk.mcp.server.prompts.PromptProvider;
 import com.thr.krdk.mcp.server.resource.UserProfileResourceProvider;
+import com.thr.krdk.mcp.server.sampling.WeatherSamplingService;
 import com.thr.krdk.mcp.server.tools.CalculatorToolsService;
 import com.thr.krdk.mcp.server.tools.SwapiToolsService;
 import com.thr.krdk.mcp.server.tools.WhoAmIToolsService;
+import io.modelcontextprotocol.server.McpServerFeatures.SyncPromptSpecification;
+import io.modelcontextprotocol.server.McpServerFeatures.SyncResourceSpecification;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import io.modelcontextprotocol.server.McpServerFeatures.SyncPromptSpecification;
-import io.modelcontextprotocol.server.McpServerFeatures.SyncResourceSpecification;
-import com.logaritex.mcp.spring.SpringAiMcpAnnotationProvider;
 
 import java.util.List;
 
@@ -26,8 +27,14 @@ public class McpStarterApplication {
     }
 
     @Bean
-    public ToolCallbackProvider swapiTools(SwapiToolsService swapiToolsService, CalculatorToolsService calculatorToolsService, WhoAmIToolsService whoAmIToolsService) {
-        return MethodToolCallbackProvider.builder().toolObjects(swapiToolsService, calculatorToolsService, whoAmIToolsService).build();
+    public ToolCallbackProvider swapiTools(SwapiToolsService swapiToolsService,
+                                           CalculatorToolsService calculatorToolsService,
+                                           WhoAmIToolsService whoAmIToolsService,
+                                           WeatherSamplingService weatherSamplingService) {
+        return MethodToolCallbackProvider.builder().toolObjects(swapiToolsService,
+                calculatorToolsService,
+                whoAmIToolsService,
+                weatherSamplingService).build();
     }
 
     @Bean
