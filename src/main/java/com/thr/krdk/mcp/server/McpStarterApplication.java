@@ -18,8 +18,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.List;
-
-import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
