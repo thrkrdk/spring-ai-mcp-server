@@ -23,9 +23,9 @@
 - [07-create-completion Branch](https://github.com/thrkrdk/spring-ai-mcp-server/tree/07-create-completion) : Completion
 - [08-oauth2-server Branch]([https://github.com/thrkrdk/spring-ai-mcp-server/tree/07-create-completion](https://github.com/thrkrdk/spring-ai-mcp-server/tree/08-oauth2-server)) : Security 
 
-#Without Security
+# Without Security
 ## 07-create-completion is the FINAL BRANCH. all code is in this branch
 
-#With Security
+# With Security
 ## 08-oauth2-server  is the FINAL BRANCH. all code is in this branch
 
