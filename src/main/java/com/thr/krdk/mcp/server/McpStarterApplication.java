@@ -12,15 +12,19 @@ import io.modelcontextprotocol.server.McpServerFeatures.SyncCompletionSpecificat
 import io.modelcontextprotocol.server.McpServerFeatures.SyncPromptSpecification;
 import io.modelcontextprotocol.server.McpServerFeatures.SyncResourceSpecification;
 import io.modelcontextprotocol.server.McpSyncServerExchange;
-import io.modelcontextprotocol.spec.McpSchema;
+import io.modelcontextprotocol.spec.McpSchema.LoggingMessageNotification;
+import io.modelcontextprotocol.spec.McpSchema.Root;
+import io.netty.handler.logging.LoggingHandler;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
@@ -56,6 +60,12 @@ public class McpStarterApplication {
     @Bean
     public List<SyncCompletionSpecification> completionSpecs(AutocompleteProvider autocompleteProvider) {
         return SpringAiMcpAnnotationProvider.createSyncCompleteSpecifications(List.of(autocompleteProvider));
+    }
+
+    @Bean
+    public List<Consumer<LoggingMessageNotification>> syncLoggingConsumers(
+            List<LoggingHandler> loggingHandlers) {
+        return SpringAiMcpAnnotationProvider.createSyncLoggingConsumers(Collections.singletonList(loggingHandlers));
     }
 
     /*
@@ -133,10 +143,10 @@ public class McpStarterApplication {
      */
 
     @Bean
-    public BiConsumer<McpSyncServerExchange, List<McpSchema.Root>> rootsChangeHandler() {
+    public BiConsumer<McpSyncServerExchange, List<Root>> rootsChangeHandler() {
         return (exchange, roots) -> {
             String uris = roots.stream()
-                    .map(McpSchema.Root::uri)
+                    .map(Root::uri)
                     .collect(Collectors.joining(", "));
         };
     }
