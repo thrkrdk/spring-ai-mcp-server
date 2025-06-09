@@ -1,9 +1,6 @@
 package com.thr.krdk.mcp.server;
 
 import com.logaritex.mcp.spring.SpringAiMcpAnnotationProvider;
-import com.thr.krdk.mcp.server.prompts.PromptProvider;
-import com.thr.krdk.mcp.server.resource.UserProfileResourceProvider;
-import com.logaritex.mcp.spring.SpringAiMcpAnnotationProvider;
 import com.thr.krdk.mcp.server.completion.AutocompleteProvider;
 import com.thr.krdk.mcp.server.prompts.PromptProvider;
 import com.thr.krdk.mcp.server.resource.UserProfileResourceProvider;
@@ -12,8 +9,6 @@ import com.thr.krdk.mcp.server.tools.CalculatorToolsService;
 import com.thr.krdk.mcp.server.tools.SwapiToolsService;
 import com.thr.krdk.mcp.server.tools.WhoAmIToolsService;
 import io.modelcontextprotocol.server.McpServerFeatures.SyncCompletionSpecification;
-import io.modelcontextprotocol.server.McpServerFeatures.SyncPromptSpecification;
-import io.modelcontextprotocol.server.McpServerFeatures.SyncResourceSpecification;
 import io.modelcontextprotocol.server.McpServerFeatures.SyncPromptSpecification;
 import io.modelcontextprotocol.server.McpServerFeatures.SyncResourceSpecification;
 import io.modelcontextprotocol.server.McpSyncServerExchange;
