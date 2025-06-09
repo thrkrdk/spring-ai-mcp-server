@@ -325,7 +325,7 @@ stdio
 
 </div>
 
-## Create Confgicius MCP  container For SSE
+## Create Springboot MCP  container For SSE
 
 <div style="border: 1px solid #050505; padding: 10px; background-color: #050505;">
    <h3>Warnings:</h3>
