@@ -3,6 +3,16 @@ spring:
     name: configcius.mcp
   main:
     banner-mode: ${SPRING_MAIN_BANNER_MODE:off}
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          oidc-client:
+            registration:
+              client-id=mcp-client:
+              client-secret={noop}secret
+              client-authentication-methods=client_secret_basic
+              authorization-grant-types=client_credentials
   ai:
     mcp:
       server:

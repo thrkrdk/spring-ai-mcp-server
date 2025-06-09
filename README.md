@@ -150,7 +150,6 @@ mvn clean package
 
 README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
 
-
 ## Resources
 
 <div style="border: 1px solid #050505; padding: 10px; background-color: #0f1fb5;">
@@ -166,7 +165,8 @@ README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
   <li>Output: JSON: Tek bir tablo satırı</li>
 </ul>
 
-<b>database-table in [DatabaseResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/DatabaseResourceProvider.java)</b>
+<b>database-table
+in [DatabaseResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/DatabaseResourceProvider.java)</b>
 <ul>
   <li>Description: Belirtilen tablodaki tüm satırları JSON listesi olarak döner</li>
   <li>Input:
@@ -177,7 +177,8 @@ README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
   <li>Output: JSON: Tablodaki tüm satırların listesi</li>
 </ul>
 
-<b>user-profile in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
+<b>user-profile
+in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
 <ul>
   <li>Description: Belirli bir kullanıcı için profil bilgilerini sağlar</li>
   <li>Input:
@@ -188,7 +189,8 @@ README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
   <li>Output: Text: Kullanıcı profil bilgileri</li>
 </ul>
 
-<b>user-attribute in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
+<b>user-attribute
+in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
 <ul>
   <li>Description: Kullanıcı profilinden belirli bir özelliği döndürür</li>
   <li>Input:
@@ -200,7 +202,8 @@ README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
   <li>Output: Text: İstenen özelliğin değeri</li>
 </ul>
 
-<b>user-status in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
+<b>user-status
+in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
 <ul>
   <li>Description: Kullanıcının mevcut durumunu döndürür</li>
   <li>Input:
@@ -211,7 +214,8 @@ README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
   <li>Output: Text: Kullanıcının çevrimiçi durumu</li>
 </ul>
 
-<b>user-avatar in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
+<b>user-avatar
+in [UserProfileResourceProvider.java](src/main/java/com/thr/krdk/mcp/server/resource/UserProfileResourceProvider.java)</b>
 <ul>
   <li>Description: Kullanıcının avatar resmini base64 kodlanmış olarak döndürür</li>
   <li>Input:
@@ -238,7 +242,8 @@ README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
   <li>Output: String: Contains two AI-generated poems about the weather (from Gemma and Qwen models) and the raw weather data in JSON format</li>
 </ul>
 
-<b>callMcpSampling in [WeatherSamplingService.java](src/main/java/com/thr/krdk/mcp/server/sampling/WeatherSamplingService.java)</b>
+<b>callMcpSampling
+in [WeatherSamplingService.java](src/main/java/com/thr/krdk/mcp/server/sampling/WeatherSamplingService.java)</b>
 <ul>
   <li>Description: Creates poetic interpretations of weather data using multiple AI models</li>
   <li>Input:
@@ -251,6 +256,29 @@ README.md dosyasına Resources bölümünü aynı formatta ekleyeceğim.
 </ul>
 </div>
 
+#Security
+Obtain a token by calling the `/oauth2/token` endpoint:
+
+```shell
+curl -XPOST "http://localhost:8080/oauth2/token" \
+  --data grant_type=client_credentials \
+  --user "oidc-client:secret"
+# And copy-paste the access token
+# Or use JQ:
+curl -XPOST "http://localhost:8080/oauth2/token" \
+  --data grant_type=client_credentials \
+  --user "oidc-client:secret" | jq -r ".access_token"
+```
+
+Store that token, and then boot up the MCP inspector:
+http://localhost:6274
+
+
+```shell
+npx @modelcontextprotocol/inspector@0.6.0
+```
+
+In the MCP inspector, paste your token. Click connect, and voilà!
 
 # TIME TO PRODUCTION
 
@@ -284,11 +312,13 @@ There are tow type Docker image for Spring MCP server for this projecy
   Note-3: change this  "COPY target/swapi-mcp-starter.jar app.jar" to "COPY swapi-mcp-starter.jar app.jar" in the Dockerfile
 
 sse
+
 ```sh
  podman build -t swapi-mcp-starter-sse  .
 ```
 
 stdio
+
 ```sh
  podman build -t swapi-mcp-starter-stdio  .
 ```
