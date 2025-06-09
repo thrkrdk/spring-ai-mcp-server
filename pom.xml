@@ -13,10 +13,10 @@
         <org.apache.maven.plugins.version>3.11.0</org.apache.maven.plugins.version>
     </properties>
     <groupId>com.thr.krdk</groupId>
-    <artifactId>swapi-mcp-starter</artifactId>
+    <artifactId>springboot-mcp-starter</artifactId>
     <version>0.0.1</version>
-    <name>swapi-mcp-starter</name>
-    <description>swapi-mcp-starter Mcp Server For Gen-AI Applications</description>
+    <name>springboot-mcp-starter</name>
+    <description>springboot-mcp-starter Mcp Server For Gen-AI Applications</description>
 
     <dependencyManagement>
         <dependencies>
@@ -95,7 +95,7 @@
     </dependencies>
 
     <build>
-        <finalName>swapi-mcp-starter</finalName>
+        <finalName>springboot-mcp-starter</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
