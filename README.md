@@ -1,4 +1,4 @@
-# Spring boot Starter for swapi MCP Servers With Spring AI
+# Spring boot Starter for  MCP Servers With Spring AI
 
 ## TECH Stack
 
@@ -21,7 +21,7 @@ mvn clean package
 ## Tools
 
 <div style="border: 1px solid #050505; padding: 10px; background-color: #0f1fb5;">
-<b>whoAmI in [WhoAmIToolsService.java](src/main/java/com/thr/krdk/swapi/mcp/server/WhoAmIToolsService.java)</b>
+<b>whoAmI in [WhoAmIToolsService.java](src/main/java/com/thr/krdk/mcp/server/WhoAmIToolsService.java)</b>
 <ul>
   <li>Description: To get User Information</li>
   <li>Input: Parametre gerektirmez</li>
@@ -267,7 +267,7 @@ There are tow type Docker image for Spring MCP server for this projecy
 - To crate SSE docker image use  [Dockerfile](dockers/sse/Dockerfile)
 
 ```shell
- podman build   -f dockers/sse/Dockerfile   -t swapi-mcp-starter-sse  .
+ podman build   -f dockers/sse/Dockerfile   -t springboot-mcp-starter-sse  .
 ```
 
 ### STDIO Docker Image
@@ -275,22 +275,22 @@ There are tow type Docker image for Spring MCP server for this projecy
 - To create STDIO docker image use [Dockerfile](dockers/stdio/Dockerfile)
 
 ```shell
-  podman build   -f dockers/stdio/Dockerfile   -t swapi-mcp-starter-stdio  .
+  podman build   -f dockers/stdio/Dockerfile   -t springboot-mcp-starter-stdio  .
 ```
 
 <div style="border: 1px solid #050505; padding: 10px; background-color: #132285;">
   Note-1 : In some cases, below command may not work. In that case, you can use following command to build the image. 
   Note-2:  Dockerfile and jar file should be in the same directory.
-  Note-3: change this  "COPY target/swapi-mcp-starter.jar app.jar" to "COPY swapi-mcp-starter.jar app.jar" in the Dockerfile
+  Note-3: change this  "COPY target/springboot-mcp-starter.jar app.jar" to "COPY springboot-mcp-starter.jar app.jar" in the Dockerfile
 
 sse
 ```sh
- podman build -t swapi-mcp-starter-sse  .
+ podman build -t springboot-mcp-starter-sse  .
 ```
 
 stdio
 ```sh
- podman build -t swapi-mcp-starter-stdio  .
+ podman build -t springboot-mcp-starter-stdio  .
 ```
 
 </div>
@@ -308,13 +308,13 @@ stdio
 <br/>
 
 ```sh
-podman run -d --name swapi-mcp-starter-sse -p 8080:8080 swapi-mcp-starter-sse
+podman run -d --name springboot-mcp-starter-sse -p 8080:8080 springboot-mcp-starter-sse
 ```
 
 # podman Run in debug mode for podman
 
 ```sh
-podman run -d --name swapi-mcp-starter-sse -p 8080:8080 -p 5005:5005 -e JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005" swapi-mcp-starter
+podman run -d --name springboot-mcp-starter-sse -p 8080:8080 -p 5005:5005 -e JAVA_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005" springboot-mcp-starter
 ```
 
 ## Intellij settings for debugging
@@ -326,8 +326,7 @@ podman run -d --name swapi-mcp-starter-sse -p 8080:8080 -p 5005:5005 -e JAVA_OPT
     * Host: localhost
     * Port: 5005
 * Click "Apply" and  "OK" to save the configuration
-
-[Help Page For Debug](https://swapiwiki.atlassian.net/wiki/spaces/CNFGCS/pages/7705232202/Plugin+Y+kleme+ve+Debug+lemleri#Debug-i%C5%9Flemleri)
+ 
 
 ## Host / Client settings
 
@@ -342,7 +341,7 @@ this configuration should be added to claude_desktop_config.json
 ```json
 {
   "mcpServers": {
-    "swapi-mcp-starter": {
+    "springboot-mcp-starter": {
       "command": "podman",
       "args": [
         "run",
@@ -357,7 +356,7 @@ this configuration should be added to claude_desktop_config.json
         "-e",
         "SPRING_AI_MCP_SERVER_STDIO",
         "true",
-        "swapi-mcp-starter-stdio"
+        "springboot-mcp-starter-stdio"
       ]
     }
   }
@@ -371,7 +370,7 @@ This version uses env parameters in args property
 ```json
 {
   "mcpServers": {
-    "swapi-mcp-starter": {
+    "springboot-mcp-starter": {
       "command": "podman",
       "args": [
         "run",
@@ -383,7 +382,7 @@ This version uses env parameters in args property
         "LOGGING_LEVEL_ROOT",
         "-e",
         "SPRING_AI_MCP_SERVER_STDIO",
-        "swapi-mcp-starter-stdio"
+        "springboot-mcp-starter-stdio"
       ],
       "env": {
         "SPRING_MAIN_BANNER_MODE": "off",
@@ -431,13 +430,13 @@ Note that the mcp key is not required in the .vscode/mcp.json file.
       }
     ],
     "servers": {
-      "swapi-mcp-starter": {
+      "springboot-mcp-starter": {
         "command": "podman",
         "args": [
           "run",
           "--rm",
           "-i",
-          "swapi-mcp-starter-stdio"
+          "springboot-mcp-starter-stdio"
         ],
         "env": {
           "SPRING_MAIN_BANNER_MODE": "${input:spring_main_banner_mode}",
